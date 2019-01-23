@@ -21,7 +21,7 @@ n_classes = 10              # MNIST classes (0-9 digits)
 x = tf.placeholder(tf.float32, [None, n_steps, n_inputs])
 y = tf.placeholder(tf.float32, [None, n_classes])
 
-# 对 weights biases 初始值的定义
+# 對weight bias 初始值定義
 weights = {
     # shape (28, 128)
     'in': tf.Variable(tf.random_normal([n_inputs, n_hidden_units])),
@@ -37,11 +37,11 @@ biases = {
 
 def RNN(X, weights, biases):
     #hidden layer for input to cell
-    # 原始的 X 是 3 维数据, 我们需要把它变成 2 维数据才能使用 weights 的矩阵乘法
+    #原始x是3維數據,我們需要把它變成2維數據,讓後面可以使用weight矩陣相乘
     # X ==> (128 batches * 28 steps, 28 inputs) 二維數據
     X = tf.reshape(X, [-1, n_inputs]) #n_input =28
     X_in = tf.matmul(X, weights['in']) + biases['in'] # X_in = W*X + b
-    # X_in ==> (128 batches , 28 steps, 128 hidden) 换回3维
+    # X_in ==> (128 batches , 28 steps, 128 hidden) 要換回去3維
     X_in = tf.reshape(X_in, [-1, n_steps, n_hidden_units])
     
 
