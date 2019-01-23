@@ -1,4 +1,4 @@
-
+#此為可視化練習
 
 import tensorflow as tf
 import numpy as np
