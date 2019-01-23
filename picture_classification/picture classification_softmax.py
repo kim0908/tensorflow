@@ -76,7 +76,7 @@ with tf.Session() as sess:
 
     # Generate input data batch
     #batch是指從train data set中隨機收取幾張圖和標籤
-    #解釋batch,epoch,iteratio-->對於一個有 2000 個訓練樣本的數據集,將2000個樣本分為大小為500的batch,那么完成一个epoch(完整的set通過nn並返回一次)需要4个 iteration
+    #解釋batch,epoch,iteratio-->對於一個有 2000 個訓練樣本的數據集,將2000個樣本分為大小為500的batch,那麼完成一個epoch(完整的set通過nn並返回一次)需要4個 iteration
     #batch size(one batch中的圖數量) 可告訴我們參數更新的頻率
     indices = np.random.choice(data_sets['images_train'].shape[0], batch_size)
     images_batch = data_sets['images_train'][indices]
