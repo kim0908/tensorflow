@@ -3,7 +3,7 @@
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 
-#MNIST库是手写体数字库，輸入數據
+#MNIST
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
 #定義加入一層神經網路
@@ -27,7 +27,7 @@ def compute_accuracy(v_xs,v_ys):
     return result
 
 
-#holder每张图片的分辨率是28×28，所以网络输入应该是28×28=784个像素数据
+#holder每張圖片像素28x28 所以input應該是28x28=784
 xs = tf.placeholder(tf.float32, [None, 784]) # 28x28
 ys = tf.placeholder(tf.float32, [None, 10]) #y有10個輸出，數字0-9
 
