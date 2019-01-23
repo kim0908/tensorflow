@@ -3,7 +3,7 @@
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data
 
-#MNIST库是手写体数字库，輸入數據
+#MNIST手寫數字圖片庫,書入數據
 mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 
 #定義準確度
