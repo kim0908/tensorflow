@@ -14,7 +14,7 @@ import time
 from datetime import datetime
 import os.path
 import data_helper
-import two_layer_fc
+import twolayer_fullyconnect
 import sys
 
 
@@ -63,17 +63,17 @@ images_placeholder = tf.placeholder(tf.float32, shape=[None, IMAGE_PIXELS],
 labels_placeholder = tf.placeholder(tf.int64, shape=[None], name='image-labels')
 
 # Operation for the classifier's result
-logits = two_layer_fc.inference(images_placeholder, IMAGE_PIXELS,
+logits = twolayer_fullyconnect.inference(images_placeholder, IMAGE_PIXELS,
   FLAGS.hidden1, CLASSES, reg_constant=FLAGS.reg_constant)
 
 # Operation for the loss function
-loss = two_layer_fc.loss(logits, labels_placeholder)
+loss = twolayer_fullyconnect.loss(logits, labels_placeholder)
 
 # Operation for the training step
-train_step = two_layer_fc.training(loss, FLAGS.learning_rate)
+train_step =twolayer_fullyconnect.training(loss, FLAGS.learning_rate)
 
 # Operation calculating the accuracy of our predictions
-accuracy = two_layer_fc.evaluation(logits, labels_placeholder)
+accuracy = twolayer_fullyconnect.evaluation(logits, labels_placeholder)
 
 # Operation merging summary data for TensorBoard
 summary = tf.summary.merge_all()
